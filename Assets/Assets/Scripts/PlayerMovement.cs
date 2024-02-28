@@ -50,17 +50,14 @@ public class PlayerMovement : MonoBehaviour
         if (inputhorizontal < 0)
         {
             render.flipX = true;
-            
         }
+        
         else if(inputhorizontal > 0)
         {
             render.flipX = false;
-            
         }
-        else
-        {
-            
-        }
+        
+        
     }
 
     void FixedUpdate()
