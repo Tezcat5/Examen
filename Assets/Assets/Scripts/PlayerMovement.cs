@@ -10,9 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     public SpriteRenderer render;
 
-    public Animator anim;
+    
 
-    AudioSource source;
 
     public Vector3 newPosition = new Vector3 (58, 5, 0);
 
@@ -21,15 +20,13 @@ public class PlayerMovement : MonoBehaviour
     private float inputhorizontal;
     public bool jump = false;
 
-    public AudioClip jumpsound;
 
     void Awake ()
 {
 
     rBody = GetComponent<Rigidbody2D>();
     render = GetComponent<SpriteRenderer>();
-    anim = GetComponent<Animator>();
-    source = GetComponent<AudioSource>();
+    
 }
 
     void Start()
@@ -47,23 +44,22 @@ public class PlayerMovement : MonoBehaviour
         {
             
                 rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                anim.SetBool("IsJumping", true);
-                source.PlayOneShot(jumpsound);
+                
         }
 
         if (inputhorizontal < 0)
         {
             render.flipX = true;
-            anim.SetBool("IsRunning", true);
+            
         }
         else if(inputhorizontal > 0)
         {
             render.flipX = false;
-            anim.SetBool("IsRunning", true);
+            
         }
         else
         {
-             anim.SetBool("IsRunning", false);
+            
         }
     }
 
